@@ -2567,7 +2567,7 @@ class Character extends FlxSprite
 
 				loadOffsetFile(curCharacter);
 
-				setGraphicSize(Std.int((width * 4) / furiosityScale));
+				setGraphicSize(Std.int((width * 1) / furiosityScale));
 				globalOffset = [0, 400];
 
 				playAnim('idle');
@@ -2719,6 +2719,25 @@ class Character extends FlxSprite
 				nativelyPlayable = true;
 				flipX = false;
 
+				playAnim('idle');
+
+			case 'corruptzie':
+				frames = Paths.getSparrowAtlas('characters/c0rruptzie', 'shared');
+				animation.addByPrefix('idle', 'Austin idle', 24, false);
+				for (anim in ['left', 'down', 'up', 'right'])
+				{
+					animation.addByPrefix('sing${anim.toUpperCase()}', 'Austin $anim', 24, false);
+				}
+				barColor = FlxColor.fromRGB(254, 90, 110);
+
+				loadOffsetFile(curCharacter);
+
+				setGraphicSize(Std.int((width * 1) / furiosityScale));
+				globalOffset = [0, 0];
+
+				nativelyPlayable = true;
+				flipX = false;
+	
 				playAnim('idle');
 
 		}
