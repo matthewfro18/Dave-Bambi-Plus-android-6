@@ -493,8 +493,9 @@ class PlayState extends MusicBeatState
 	public static var eeveeVoice:Bool = false;
 	public static var xoVoice:Bool = false;
 	public static var shinxVoice:Bool = false;
+	public static var corruptzieVoice:Bool = false;
 	var isShaggy:Bool = false;
-        var isKogre:Bool = false;
+    var isKogre:Bool = false;
 	var isTails:Bool = false;	
 	var isConner:Bool = false;
 	var isChipFlake:Bool = false;
@@ -503,6 +504,7 @@ class PlayState extends MusicBeatState
 	var isEevee:Bool = false;
 	var isXo:Bool = false;
 	var isShinx:Bool = false;
+	var isCorruptzie:Bool = false;
 	var legs:FlxSprite;
 	var shaggyT:FlxTrail;
 	var legT:FlxTrail;
@@ -1145,7 +1147,8 @@ class PlayState extends MusicBeatState
                 isStickyBM = boyfriend.curCharacter == 'sticky';
                 isEevee = boyfriend.curCharacter == 'eevee' || boyfriend.curCharacter == 'eevee-shiny';
                 isXo = boyfriend.curCharacter == 'xo';
-		isShinx = boyfriend.curCharacter == 'shinx';
+	        	isShinx = boyfriend.curCharacter == 'shinx';
+	        	isCorruptzie = boyfriend.curCharacter == 'corruptzie';
 
 		switch (stageCheck)
 		{
@@ -1315,6 +1318,8 @@ class PlayState extends MusicBeatState
 		eeveeVoice = isEevee && ['interdimensional'].contains(SONG.song.toLowerCase());
 
 		xoVoice = isXo && ['interdimensional'].contains(SONG.song.toLowerCase());
+
+		corruptzieVoice = isCorruptzie && ['interdimensional'].contains(SONG.song.toLowerCase());
 
 		shinxVoice = isShinx && ['interdimensional'].contains(SONG.song.toLowerCase());
 		generateSong(SONG.song);
@@ -3550,6 +3555,9 @@ class PlayState extends MusicBeatState
 		
 		if (isShinx && SONG.needsVoices)
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, localFunny == CharacterFunnyEffect.Tristan ? "-Tristan" : shinxVoice ? "Shinx" : ""));
+
+		if (isCorruptzie && SONG.needsVoices)
+			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, localFunny == CharacterFunnyEffect.Tristan ? "-Tristan" : corruptzieVoice ? "Corruptzie" : ""));
 
 		FlxG.sound.list.add(vocals);
 
@@ -8565,7 +8573,7 @@ class PlayState extends MusicBeatState
 								shy = 450 + boyfriend.globalOffset[1];
 							}
 							
-							if (!isShaggy) {
+							if (!isShaggy && !isKogre && !isTails && !isConner && !isStickyBM && !isStickyBM && !isEevee && !isXo && !isShinx && !isCorruptzie) {
 								for (char in [boyfriend, gf])
 								{
 									if (char.animation.curAnim != null && char.animation.curAnim.name.startsWith('sing') && !char.animation.curAnim.finished)
@@ -8583,7 +8591,7 @@ class PlayState extends MusicBeatState
 									}
 								}
 							}
-					}		
+					}
 				case 'interdimensional-zorua':
 					switch(curStep)
 					{
