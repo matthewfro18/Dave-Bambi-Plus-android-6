@@ -286,6 +286,7 @@ class CharacterSelectState extends MusicBeatState
 		unlockCharacter('shinx');
 		unlockCharacter('question');
 		unlockCharacter('question-playable');
+		unlockCharacter('corruptzie');
 		if (PlayState.SONG.song.toLowerCase() == 'exploitation' && !FlxG.save.data.modchart)
 		{
 			if (FlxG.fullscreen)
