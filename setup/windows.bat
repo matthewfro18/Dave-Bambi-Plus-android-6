@@ -9,6 +9,7 @@ haxelib install openfl 9.3.3
 haxelib install flixel 4.11.0
 haxelib install flixel-addons 2.9.0
 haxelib install flixel-tools 1.5.1
+haxelib install flixel-ui
 haxelib install hxcpp
 haxelib install hxCodec 1.4.0
 haxelib install hxdiscord_rpc 2.5.1
