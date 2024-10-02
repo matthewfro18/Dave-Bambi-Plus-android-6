@@ -31,7 +31,7 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
-          haxelib install hmm --quiet
+          haxelib git hmm https://github.com/andywhite37/hmm --quiet
           haxelib run hmm install --quiet
         shell: cmd
       - name: Compile
